@@ -2,8 +2,8 @@
 
 [![SOC Automation](https://img.shields.io/badge/SOC-Automation-blue.svg)](https://github.com/Abdelrahman-Elzein/Wazuh-TheHive-Shuffle-SOAR-Automation)
 [![SIEM](https://img.shields.io/badge/SIEM-Wazuh%20v4.12-00a9e0.svg)](https://wazuh.com/)
-[![SOAR](https://img.shields.io/badge/SOAR-Shuffle-orange.svg)](https://shuffler.io/)
-[![Case Management](https://img.shields.io/badge/Case%20Management-TheHive-yellow.svg)](https://thehive-project.org/)
+[![SOAR](https://img.shields.io/badge/SOAR-Shuffle%20Cloud%20%26%20Orborus-orange.svg)](https://shuffler.io/)
+[![Case Management](https://img.shields.io/badge/Case%20Management-TheHive-purple.svg)](https://thehive-project.org/)
 [![Threat Intel](https://img.shields.io/badge/Threat%20Intel-VirusTotal-394eff.svg)](https://www.virustotal.com/)
 
 An end-to-end hybrid Security Orchestration, Automation, and Response (SOAR) lab integrating **Wazuh SIEM**, **Shuffle Cloud & On-Premises Orborus Worker**, **VirusTotal Threat Intelligence**, and **TheHive Case Management** to automatically detect credential dumping (`mimikatz.exe`), enrich file hashes, create incident alerts, notify SOC analysts, and isolate compromised endpoints via Wazuh Active Response.
@@ -21,12 +21,12 @@ An end-to-end hybrid Security Orchestration, Automation, and Response (SOAR) lab
 7. Shuffle triggers Wazuh Active Response to execute a Windows Firewall script, automatically isolating the compromised host from the network.
 
 ### Architecture Diagram (Draw.io)
-![Draw.io Topology Diagram](Screenshots/00%20Diagram-(Draw.io).png)
+![SOAR Workflow Diagram Draw.io](Screenshots/00%20Diagram-(Draw.io).png)
 
 ### Shuffle SOAR Workflows Overview
 | Cloud Main Workflow (`Wazuh-TheHive-Shuffle-SOAR-Automation`) | On-Premises Subflow (`TheHive-Local-SOC-Lab-Location`) |
 | :---: | :---: |
-| ![Shuffle Cloud Diagram](Screenshots/00%20Diagram-Shuffle-1.png) | ![Shuffle On-Prem Subflow Diagram](Screenshots/00%20Diagram-Shuffle-2.png) |
+| ![Shuffle Workflow 1](Screenshots/00%20Diagram-Shuffle-1.png) | ![Shuffle Workflow 2](Screenshots/00%20Diagram-Shuffle-2.png) |
 
 ---
 
@@ -69,11 +69,11 @@ To keep this guide focused on the custom detections, hybrid networking, and SOAR
 
 | Wazuh Overview Page | Deploy New Agent - Step 1 |
 | :---: | :---: |
-| ![Wazuh Overview Page](Screenshots/01%20Wazuh-Overview-Page.png) | ![Deploy New Agent 1](Screenshots/02%20Wazuh-Deploy-New-Agent-1.png) |
+| ![Wazuh Overview Page](Screenshots/01%20Wazuh-Overview-Page.png) | ![Wazuh Deploy New Agent 1](Screenshots/02%20Wazuh-Deploy-New-Agent-1.png) |
 
 | Deploy New Agent - Step 2 | PowerShell Installation Execution |
 | :---: | :---: |
-| ![Deploy New Agent 2](Screenshots/03%20Wazuh-Deploy-New-Agent-2.png) | ![PowerShell Agent Install](Screenshots/04%20Wazuh-Deploy-New-Agent-2-(Powershell-command).png) |
+| ![Wazuh Deploy New Agent 2](Screenshots/03%20Wazuh-Deploy-New-Agent-2.png) | ![PowerShell Command](Screenshots/04%20Wazuh-Deploy-New-Agent-2-(Powershell-command).png) |
 
 ---
 
@@ -90,7 +90,7 @@ To keep this guide focused on the custom detections, hybrid networking, and SOAR
 
 | Sysmon-Only `ossec.conf` Configuration | Wazuh Agent Service Restart |
 | :---: | :---: |
-| ![Config Sysmon Only](Screenshots/05%20Win10-Endpoint-Config-Wazuh-Agent-Send-Sysmon-Only.png) | ![Wazuh Agent Restart](Screenshots/06%20Wazuh-Agent-Service-Restart-After-Previous-Config.png) |
+| ![Win10 Config Sysmon Only](Screenshots/05%20Win10-Endpoint-Config-Wazuh-Agent-Send-Sysmon-Only.png) | ![Wazuh Agent Service Restart](Screenshots/06%20Wazuh-Agent-Service-Restart-After-Previous-Config.png) |
 
 ---
 
@@ -123,7 +123,7 @@ To keep this guide focused on the custom detections, hybrid networking, and SOAR
 
 | Win10 Mimikatz Baseline Execution | Wazuh Archives Raw Telemetry Logs |
 | :---: | :---: |
-| ![Win10 Mimikatz Baseline](Screenshots/12%20Win10-mimikatz-Baseline-Execution.png) | ![Wazuh Archives Raw Logs](Screenshots/13%20Wazuh-Archives-mimikatz-Raw-Logs.png) |
+| ![Win10 Mimikatz Execution](Screenshots/12%20Win10-mimikatz-Baseline-Execution.png) | ![Wazuh Archives Raw Logs](Screenshots/13%20Wazuh-Archives-mimikatz-Raw-Logs.png) |
 
 ---
 
@@ -143,7 +143,7 @@ To keep this guide focused on the custom detections, hybrid networking, and SOAR
 
 | Adding Custom Rule - 1 | Adding Custom Rule - 2 | Custom Rule Added & Verified |
 | :---: | :---: | :---: |
-| ![Adding Custom Rule 1](Screenshots/14%20Wazuh-Adding-New-Custom-Rule-1.png) | ![Adding Custom Rule 2](Screenshots/15%20Wazuh-Adding-New-Custom-Rule-2.png) | ![Custom Rule Added](Screenshots/16%20Wazuh-Mimikatz-Usage-Detected-Rule-Added.png) |
+| ![Adding Custom Rule 1](Screenshots/14%20Wazuh-Adding-New-Custom-Rule-1.png) | ![Adding Custom Rule 2](Screenshots/15%20Wazuh-Adding-New-Custom-Rule-2.png) | ![Mimikatz Rule Added](Screenshots/16%20Wazuh-Mimikatz-Usage-Detected-Rule-Added.png) |
 
 ---
 
@@ -167,14 +167,14 @@ After restarting the Wazuh Manager (`sudo systemctl restart wazuh-manager.servic
 
 | Added Shuffle Webhook to Wazuh `ossec.conf` | Verified Webhook Receiving Wazuh Alerts |
 | :---: | :---: |
-| ![Adding Shuffle Webhook to Wazuh](Screenshots/19%20Adding-Shuffle-Webhook_To_Wazuh.png) | ![Verified Webhook Receiving Alerts](Screenshots/20%20Verified-Webhook-Receiving-Alerts-From-Wazuh.png) |
+| ![Adding Shuffle Webhook to Wazuh](Screenshots/19%20Adding-Shuffle-Webhook_To_Wazuh.png) | ![Verified Webhook Alerts](Screenshots/20%20Verified-Webhook-Receiving-Alerts-From-Wazuh.png) |
 
 ---
 
 ### 10–12. SHA256 Hash Extraction & VirusTotal Threat Intelligence Enrichment
 10. SHA256 Hash Extraction (Regex Node): Next, I added a Shuffle Tools node (renamed `SHA256-Hash`) and set its action to `Regex capture group`. Because Sysmon bundles multiple hash algorithms (SHA1, SHA256, MD5, and IMPHASH) into a single field, I mapped `$exec.text.win.eventdata.hashes` into the Input data field using Shuffle's Autocomplete feature and applied the regex pattern `SHA256=([0-9A-Fa-f]{64})` to isolate only the 64-character SHA256 hash for VirusTotal lookup.
 
-![Added SHA256 Regex Node](Screenshots/21%20Added-Get-File-Meta-Node-For-Capturing-SHA256-Hash.png)
+![SHA256 Regex Node](Screenshots/21%20Added-Get-File-Meta-Node-For-Capturing-SHA256-Hash.png)
 
 11. Threat Intelligence Enrichment (VirusTotal Node): I retrieved my API key from VirusTotal (`Profile Icon -> API Key`), added a VirusTotal node to the Shuffle canvas, and set its action to `Get a hash report`. Under the Setup tab, I created a new authentication profile (`VT-Auth`) using the API key. Finally, under the Configuration tab, I mapped the extracted hash variable (`$sha256-hash.group_0.#`) into the Id field via Shuffle's Autocomplete menu.
 
@@ -272,7 +272,7 @@ sudo systemctl status thehive.service
 
 | TheHive Web GUI Config - 1 | TheHive Web GUI Config - 2 | TheHive Web GUI Config - 3 |
 | :---: | :---: | :---: |
-| ![TheHive Web GUI 1](Screenshots/25%20TheHive-Web-GUI-Config-1.png) | ![TheHive Web GUI 2](Screenshots/26%20TheHive-Web-GUI-Config-2.png) | ![TheHive Web GUI 3](Screenshots/27%20TheHive-Web-GUI-Config-3.png) |
+| ![TheHive Config 1](Screenshots/25%20TheHive-Web-GUI-Config-1.png) | ![TheHive Config 2](Screenshots/26%20TheHive-Web-GUI-Config-2.png) | ![TheHive Config 3](Screenshots/27%20TheHive-Web-GUI-Config-3.png) |
 
 ---
 
@@ -289,7 +289,7 @@ sudo systemctl status thehive.service
 
 16. Create Local Runtime Subflow: In Shuffle, I created a new workflow named `TheHive-Local-SOC-Lab-Location` and assigned its runtime location to the on-premises `Local-SOC-Lab` worker so its actions could reach my private lab network.
 
-![Created On-Prem Location Workflow](Screenshots/33%20Shuffle-Created-A-New-Workflow-For-The-New-Onprem-Location.png)
+![Created On-Premises Workflow](Screenshots/33%20Shuffle-Created-A-New-Workflow-For-The-New-Onprem-Location.png)
 
 17. Configure TheHive Alert Creation Node: Inside the `TheHive-Local-SOC-Lab-Location` workflow, I added a TheHive node, named it `TheHive_1`, and set its action to `(POST) Create alert`. Under the `Setup` tab, I created an authentication profile named `TheHive-Auth` using the `SOAR-Automation` service account's API key and set the target URL to `192.168.8.101:9000`. Under the `Configuration` tab, I switched from `Simple` to `Advanced` view, set `Ssl verify` and `To file` to `False`, and configured the JSON `Body` using Shuffle's Autocomplete variables to structure the incoming Wazuh telemetry into a rich alert:
 
@@ -382,7 +382,7 @@ netsh advfirewall firewall delete rule name="Wazuh-Isolation-Allow-In"
 netsh advfirewall set allprofiles firewallpolicy blockinbound,allowoutbound
 ```
 
-![Create Endpoint Isolation Scripts](Screenshots/39%20Create-Endpoint-Isolation-Scripts.png)
+![Created Endpoint Isolation Scripts](Screenshots/39%20Create-Endpoint-Isolation-Scripts.png)
 
 21. Register Active Response Commands on Wazuh Manager: On the Wazuh Manager VM, I modified `/var/ossec/etc/ossec.conf` to register both custom Windows executables as Active Response commands. By omitting a rule or level trigger inside the `<active-response>` blocks, Wazuh leaves containment disabled by default until explicitly invoked on demand by Shuffle via the Wazuh API:
 
@@ -414,7 +414,7 @@ After restarting the Wazuh Manager (`sudo systemctl restart wazuh-manager.servic
 
 | Registering Active Response - 1 | Registering Active Response - 2 |
 | :---: | :---: |
-| ![Registering Active Response 1](Screenshots/40%20Registering_Active-Response-Commands-On-Wazuh-Manager-1.png) | ![Registering Active Response 2](Screenshots/41%20Registering_Active-Response-Commands-On-Wazuh-Manager-2.png) |
+| ![Active Response 1](Screenshots/40%20Registering_Active-Response-Commands-On-Wazuh-Manager-1.png) | ![Active Response 2](Screenshots/41%20Registering_Active-Response-Commands-On-Wazuh-Manager-2.png) |
 
 ---
 
@@ -425,7 +425,7 @@ After restarting the Wazuh Manager (`sudo systemctl restart wazuh-manager.servic
 curl -u wazuh:<WAZUH_API_PASSWORD> -k -X GET "https://192.168.8.100:55000/security/user/authenticate?raw=true"
 ```
 
-![Configured HTTP CURL Node](Screenshots/42%20Shuffle-Added-And-Configured-An-HTTP-CURL-Node.png)
+![HTTP CURL Node Configuration](Screenshots/42%20Shuffle-Added-And-Configured-An-HTTP-CURL-Node.png)
 
 23. Configure Automated Endpoint Isolation (Wazuh Node): Still inside the on-premises workflow (`TheHive-Local-SOC-Lab-Location`), I connected the `Get-API_1` node to a new Wazuh node named `Wazuh_Isolate_Host` and set its action to `PUT Run command`. Leaving the standard Authentication profile blank, I mapped the dynamic JWT token (`$get-api_1.body`) into the `Apikey` field and set the target URL to `https://192.168.8.100:55000`. Under the configuration options, I set `Command` to `isolate-host0`, dynamically mapped the compromised agent ID (`$exec.all_fields.agent.id`) into `Agents list`, disabled `SSL Verify` and `To File` (`False`), and enabled `Wait for complete` (`true`) so Shuffle verifies the containment command finishes executing.
 
@@ -435,7 +435,7 @@ curl -u wazuh:<WAZUH_API_PASSWORD> -k -X GET "https://192.168.8.100:55000/securi
 
 24. Connect Host Isolation Subflow: Back in the main cloud workflow (`Wazuh-TheHive-Shuffle-SOAR-Automation`), I added a second Subflow node named `Wazuh_Isolate_Host` connected downstream from the `VirusTotal` node. I set its target workflow to `TheHive-Local-SOC-Lab-Location`, selected `Get-API_1` as the start node, and passed `$exec` as the `Runtime Argument` so the on-premises Orborus worker receives the compromised agent's metadata to execute containment.
 
-![Connected Wazuh Isolate Host Subflow](Screenshots/46%20Shuffle-Wazuh-Isolate-Host-Subflow-Addition-And-Configuration.png)
+![Wazuh Isolate Host Subflow](Screenshots/46%20Shuffle-Wazuh-Isolate-Host-Subflow-Addition-And-Configuration.png)
 
 > **Note on Host Recovery (Un-isolation):** Once incident investigation and remediation are complete, the compromised endpoint can be remotely restored to the network from the Wazuh Manager CLI using the following command (where `001` is the target agent ID):
 > ```bash
@@ -451,59 +451,59 @@ To validate the complete SOAR workflow without manual analyst intervention, I te
 ### 1. Simulated Defense Evasion Execution (`Workflow-Execution 1`)
 Executed `Renamed-mimikatz.exe` via PowerShell on the Windows 10 endpoint (7:52 PM) to simulate an attacker renaming a known credential-dumping tool to bypass filename-based detections.
 
-![Workflow Execution 1 - Renamed Mimikatz Execution](Screenshots/Workflow-Execution%201.png)
+![Workflow-Execution 1](Screenshots/Workflow-Execution%201.png)
 
 ---
 
-### 2. Automated Endpoint Containment (`Workflow-Execution 2`)
-Immediately after execution (7:53 PM), Wazuh Active Response applied the Windows Firewall isolation policy, causing the continuous ping (`ping 8.8.8.8 -t`) on the Windows 10 endpoint to fail with `"General failure."`
-
-![Workflow Execution 2 - Automated Endpoint Containment](Screenshots/Workflow-Execution%202.png)
-
----
-
-### 3. SIEM Detection & Alert Generation (`Workflow-Execution 3`)
+### 2. SIEM Detection & Alert Generation (`Workflow-Execution 2`)
 Verified in Wazuh Discover (`wazuh-alerts-*`) that custom rule `100002` detected the execution via its PE `originalFileName` metadata (`mimikatz.exe`) and generated a high-severity alert.
 
-![Workflow Execution 3 - Wazuh SIEM Alert](Screenshots/Workflow-Execution%203.png)
+![Workflow-Execution 2](Screenshots/Workflow-Execution%202.png)
 
 ---
 
-### 4. Automated Email Notification (`Workflow-Execution 4`)
+### 3. Automated Email Notification (`Workflow-Execution 3`)
 Confirmed that Shuffle's `Send_Email` action delivered an alert email containing the extracted SHA256 file hash and endpoint telemetry.
 
-![Workflow Execution 4 - Email Notification](Screenshots/Workflow-Execution%204.png)
+![Workflow-Execution 3](Screenshots/Workflow-Execution%203.png)
 
 ---
 
-### 5. Automated Case Creation in TheHive — Alerts List (`Workflow-Execution 5`)
+### 4. Automated Case Creation in TheHive — Alerts List (`Workflow-Execution 4`)
 Verified that the on-premises Shuffle subflow created a new High-severity alert in TheHive tagged with `Mimikatz` and `T1003`.
 
-![Workflow Execution 5 - TheHive Alerts List](Screenshots/Workflow-Execution%205.png)
+![Workflow-Execution 4](Screenshots/Workflow-Execution%204.png)
 
 ---
 
-### 6. Automated Case Creation in TheHive — Alert Details (`Workflow-Execution 6`)
+### 5. Automated Case Creation in TheHive — Alert Details (`Workflow-Execution 5`)
 Opened the alert preview in TheHive to confirm all host details, process paths, and file hashes were populated automatically by the `SOAR-Automation` service account.
 
-![Workflow Execution 6 - TheHive Alert Details](Screenshots/Workflow-Execution%206.png)
+![Workflow-Execution 5](Screenshots/Workflow-Execution%205.png)
+
+---
+
+### 6. Automated Endpoint Containment (`Workflow-Execution 6`)
+Immediately after execution (7:53 PM), Wazuh Active Response applied the Windows Firewall isolation policy, causing the continuous ping (`ping 8.8.8.8 -t`) on the Windows 10 endpoint to fail with `"General failure."`
+
+![Workflow-Execution 6](Screenshots/Workflow-Execution%206.png)
 
 ---
 
 ### 7. Manual Host Recovery Command (`Workflow-Execution 7`)
 Executed `sudo /var/ossec/bin/agent_control -b 0.0.0.0 -f unisolate-host0 -u 001` on the Wazuh Manager CLI to lift the firewall block and restore network access to agent `001`.
 
-![Workflow Execution 7 - Manual Un-isolation Command](Screenshots/Workflow-Execution%207.png)
+![Workflow-Execution 7](Screenshots/Workflow-Execution%207.png)
 
 ---
 
 ### 8. Network Connectivity Restored (`Workflow-Execution 8`)
 Verified on the Windows 10 endpoint (7:58 PM) that the Windows Firewall block was removed and outbound network connectivity returned. *(Note: Pardon my unstable internet connection at the time of testing, which caused several "Request timed out" lines—the immediate disappearance of the "General failure." messages and return of "Reply from 8.8.8.8" confirms that the remote un-isolation command worked successfully.)*
 
-![Workflow Execution 8 - Connectivity Restored](Screenshots/Workflow-Execution%208.png)
+![Workflow-Execution 8](Screenshots/Workflow-Execution%208.png)
 
 ---
 
 ## 👨‍💻 Author
 
-**Abdelrahman Elzein**
+**Abdelrahman Elzein**  
