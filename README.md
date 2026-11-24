@@ -53,8 +53,7 @@ This lab uses a hybrid cloud and on-premises architecture hosted locally on Orac
 
 To keep this guide focused on the custom detections, hybrid networking, and SOAR automation, standard base installations were performed following the official vendor documentation:
 * **Wazuh (v4.12):** Deployed using the all-in-one installation assistant via the Wazuh Quickstart Guide (`https://documentation.wazuh.com/4.12/quickstart.html`).
-* **TheHive:** Deployed on a standalone Linux server following the TheHive Software Requirements and TheHive Standalone Server Installation Guide.
-
+* **TheHive:** Deployed on a standalone Linux server following the TheHive Software Requirements (`https://docs.strangebee.com/thehive/installation/software-requirements/`) and TheHive Standalone Server Installation Guide (`https://docs.strangebee.com/thehive/installation/installation-guide-linux-standalone-server/`).
 ---
 
 ## ⚙️ Implementation Steps
